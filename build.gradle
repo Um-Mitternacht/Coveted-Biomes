@@ -84,7 +84,7 @@ repositories {
     }
     maven {
         name = "ilexiconn"
-        url = "http://maven.ilexiconn.net"
+        url = "https://maven.mcmoddev.com"
   }
 
 dependencies {
