@@ -45,8 +45,8 @@ minecraft {
     mappings = "snapshot_20160718"
     runDir = "run"
     replace "@VERSION@", project.version
-    replace "@GRC_MC_VERSION@", minecraft_version
-    replace "@GRC_VERSION@", CB_version
+    replace "@CB_MC_VERSION@", minecraft_version
+    replace "@CB_VERSION@", CB_version
 }
 
 processResources {
@@ -128,29 +128,6 @@ tasks.withType(JavaCompile) {
 //    classifier = "sources"
 // }
 
-javadoc {
-    source += sourceSets.api.allSource
-    for (StructExtApi entry in apis) {
-        exclude entry.exclusion
-    }
-    failOnError = false
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = "javadoc"
-    from "build/docs/javadoc"
-}
-
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    from(sourceSets.api.output) {
-        for (StructExtApi api in apis) {
-            exclude api.exclusion
-        }
-    }
-    classifier = "deobf"
-}
-
-build.dependsOn sourceJar, javadocJar, deobfJar, apiJar
+build.dependsOn sourceJar
 
 }
