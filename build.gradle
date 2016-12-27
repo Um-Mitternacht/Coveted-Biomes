@@ -42,7 +42,7 @@ class StructExtApi {
 
 minecraft {
     version = minecraft_forge_version
-    mappings = "snapshot_20160718"
+    mappings = "snapshot_20161111"
     runDir = "run"
     replace "@VERSION@", project.version
     replace "@CB_MC_VERSION@", minecraft_version
